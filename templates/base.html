@@ -5,20 +5,23 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
+		<!-- Bootstrap CSS -->
 		<link
 			rel="stylesheet"
 			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 			crossorigin="anonymous"
 		/>
-
-		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+		
+		<!-- Custom CSS -->
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css?version=51">
 
 		<title>{% block title %}{% endblock %}</title>
 	</head>
 	<body>
+		<!-- Bootstrap Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="/">Fantasy Expert</a>
+			<a class="navbar-brand" href="/"><img src="http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/basketball.png" width="30" height="30" class="d-inline-block align-top" alt="">  Fantasy Expert</a>
 			<button
 				class="navbar-toggler"
 				type="button"
@@ -42,7 +45,8 @@
 				</ul>
 			</div>
 		</nav>
-
+		
+		<!-- Homepage Header -->
 		<div class="container d-flex align-items-center h-100">
 			<div class="row">
 				<header class="text-center col-12">
@@ -53,16 +57,9 @@
 						>
 					</h1>
 				</header>
-				<div class="buffer col-12"></div>
-				<section class="text-center col-12">
-					<button type="button" class="btn btn-warning btn-xl">
-						Find out more
-					</button>
-				</section>
-			</div>
-		</div>
-		
+
 		{% block content %} {% endblock %}
+		
 		<!-- Javascript for Navbar -->
 		<script
 			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

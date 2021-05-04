@@ -2,43 +2,26 @@ body,
 html {
 	width: 100%;
 	height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
-	background: url(hoop.jpg) no-repeat center center fixed;
+	background: url("https://images.unsplash.com/photo-1486882430381-e76d701e0a3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1650&q=80")
+		no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
 }
 
-h1 {
-  font-size: 3rem;
-  color: #FFFFFF;
+header {
+	color: white;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	text-shadow: 2px 2px 4px black;
 }
 
-/* .buffer {
-  height: 8rem;
-} */
-
-.btn {
-  font-weight: 700;
-  border-radius: 300px;
-  text-transform: uppercase;
-  margin-right: 1.5rem;
-  /* margin-top: 6rem; */
+.navbar-brand {
+	font-weight: bold;
 }
 
-.btn:hover {
-  background-color: #ec5618;
-  border-color: #ec5618;
-  border-width: 4px;
-}
-
-.btn-warning {
-  background-color: #ee6730;
-  border-color: #ee6730;
-}
-
-.btn-xl {
-  padding: 1rem 2rem;
+.navbar-nav:hover {
+	color: orange;
 }
