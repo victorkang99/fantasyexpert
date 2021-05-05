@@ -35,6 +35,11 @@ def trade():
 			index += 1
 			#return redirect(url_for("tradecomp", tra=statline_prod))
 			#return statline_prod
+		input1 = statline_prod2[list(statline_prod2)[0]][1:]
+		input2 = statline_prod2[list(statline_prod2)[1]][1:]
+		output = [round_up(float(e1)-float(e2)) for (e1, e2) in zip(input1, input2)]
+		statline_prod2["differential"] = ["+/-"]
+		statline_prod2["differential"].extend(output)
 		return render_template("tradetable.html", result=statline_prod2)
 		#stat_table3 = stat_table2.find("tr", {"class": "Table__TR Table__TR--sm Table__even"})
 	else:
