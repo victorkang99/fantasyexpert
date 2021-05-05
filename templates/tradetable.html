@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+th {
+  text-align: left;
+}
+</style>
+<h2>Trade Results</h2>
+
+<table style="width:100%">
+	<tr>
+		<th>Name</th>
+		<th>FG%</th>
+		<th>FT%</th>
+		<th>3P%</th>
+		<th>PTS</th>
+		<th>REB</th>
+		<th>AST</th>
+		<th>STL</th>
+		<th>BLK</th>
+		<th>TO</th>
+	</tr>
+	{% for x,y in result.items() %}
+    	<tr>
+      		<td>{{y[0]}}</td>
+      		<td>{{y[1]}}</td>
+      		<td>{{y[2]}}</td>
+      		<td>{{y[3]}}</td>
+      		<td>{{y[4]}}</td>
+      		<td>{{y[5]}}</td>
+      		<td>{{y[6]}}</td>
+      		<td>{{y[7]}}</td>
+      		<td>{{y[8]}}</td>
+      		<td>{{y[9]}}</td>
+    	</tr>
+	{% endfor %}
