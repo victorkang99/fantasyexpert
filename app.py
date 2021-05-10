@@ -25,13 +25,18 @@ def trade():
 				"userMessage" : "The player's name was not recognized. Make sure the player's name is spelled correctly."}
 				return error
 
-			target_url = "https://www.espn.com/nba/player/gamelog/_/id/" + str(target_id)
+			target_url = "https://www.espn.com/nba/player/_/id/" + str(target_id)
 			target_url = target_url.strip('\n')
 			page = requests.get(str(target_url))
 			soup = BeautifulSoup(page.text, 'html.parser')
-			stat_table = soup.find('div', class_= 'summary_table')
-			statline = stat_table.find_all(class_="Table__TD")
-			statline_prod2[index] = [x, statline[3].get_text(), statline[7].get_text(), statline[5].get_text(), statline[14].get_text(), statline[8].get_text(), statline[9].get_text(), statline[11].get_text(), statline[10].get_text(), statline[13].get_text()]
+			team_record = soup.find('div', class_ = 'Gamestrip__Record db n10 clr-gray-03').get_text()
+			total_games_played = 0
+			for num in team_record.split("-"):
+				total_games_played += int(num)
+			statline2 = soup.find('section', class_ = 'Card PlayerStats').find_all(class_ = "Table__TD")
+			GP = statline2[2].get_text()
+			total_games_played -= int(GP)
+			statline_prod2[index] = [x, statline2[4].get_text(), statline2[6].get_text(), statline2[5].get_text(), statline2[13].get_text(), statline2[7].get_text(), statline2[8].get_text(), statline2[10].get_text(), statline2[9].get_text(), statline2[12].get_text(), total_games_played]
 			index += 1
 			#return redirect(url_for("tradecomp", tra=statline_prod))
 			#return statline_prod
