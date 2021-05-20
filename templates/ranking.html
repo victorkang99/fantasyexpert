@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+th {
+  text-align: left;
+}
+</style>
+<h2>Player Ranking</h2>
+
+<table>
+    <tr><th>Name</th><th>PTS</th><th>REB</th></tr>
+    <tr><td>Jimmy Butler</td><td>21</td><td><i>25</i></td></tr>
+    <tr><td><a href=#>Damian Lillard</a></td><td><i>26</i></td><td></td></tr>
+    <tr><td>LeBron James</td><td><a href=#>25</a></td><td><b>-17</b></td></tr>
+    <tr><td>Nikola Jokic</td><td>23</td><td><a href=#>100</a></td></tr>
+    <tr><td>Julius Randle</td><td>24</td><td>-6</td></tr>
+</table>
+
+<script>
+	const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+
+	const comparer = (idx, asc) => (a, b) => ((v1, v2) => 
+    	v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
+    	)(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+
+	document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
+    	const table = th.closest('table');
+    	Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
+        	.sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+        	.forEach(tr => table.appendChild(tr) );
+	})));
+</script>

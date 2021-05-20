@@ -50,6 +50,13 @@ def trade():
 	else:
 		return render_template("trade.html")
 
+@app.route("/ranking")
+def ranking():
+	stattable_url = "https://www.espn.com/nba/stats/player/_/table/general/sort/PER/dir/desc"
+	page = requests.get(str(stattable_url))
+	soup = BeautifulSoup(page.text, 'html.parser')
+	return render_template("ranking.html")
+
 #@app.route("/tradecomp")
 #def tradecomp():
  #  tra = request.args.get("tra")
