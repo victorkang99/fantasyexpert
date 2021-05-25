@@ -36,7 +36,7 @@ def trade():
 			statline2 = soup.find('section', class_ = 'Card PlayerStats').find('div', class_ = 'Table__Scroller').find_all(class_ = "Table__TD")
 			GP = statline2[0].get_text()
 			total_games_played -= int(GP)
-			statline_prod2[index] = [x, statline2[4].get_text(), statline2[6].get_text(), statline2[5].get_text(), statline2[13].get_text(), statline2[7].get_text(), statline2[8].get_text(), statline2[10].get_text(), statline2[9].get_text(), statline2[12].get_text(), total_games_played]
+			statline_prod2[index] = [x, statline2[2].get_text(), statline2[4].get_text(), statline2[3].get_text(), statline2[11].get_text(), statline2[5].get_text(), statline2[6].get_text(), statline2[8].get_text(), statline2[7].get_text(), statline2[10].get_text(), total_games_played]
 			index += 1
 			#return redirect(url_for("tradecomp", tra=statline_prod))
 			#return statline_prod
